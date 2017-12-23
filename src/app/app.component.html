@@ -1,0 +1,35 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="http://bulma.io">
+       <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"> 
+    </a>
+    <div class="navbar-burger" data-target="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div class="navbar-menu" id="navMenu">
+    <div class="navbar-end">
+      <a class="navbar-item">Cadastro de Planos e Produtos</a>
+    </div>
+  </div>
+</nav>
+<section class="section">
+  <div class="container">
+    <pricing-plans-table></pricing-plans-table>
+    <button class="button is-primary" (click)="showForm()" *ngIf="!formIsActive">
+      <span class="icon"><i class="fa fa-plus"></i></span>
+    </button>
+    <button class="button is-danger" (click)="hideForm()" *ngIf="formIsActive">
+      <span class="icon"><i class="fa fa-times"></i></span>
+    </button>
+    <hr>
+    <product-form *ngIf="formIsActive"></product-form>
+  </div>
+  <ul>
+    <li class="text" *ngFor="let item of items | async">
+      {{item.$value}}
+    </li>
+  </ul>
+</section>

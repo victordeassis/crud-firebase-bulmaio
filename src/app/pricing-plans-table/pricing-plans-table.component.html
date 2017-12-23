@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Preço</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let plan of plans">
+      <th>{{ plan.title }}</th>
+      <td>{{ plan.price | currency:'USD':true }}</td>
+      <td>{{ plan.description }}</td>
+      <td>
+        <button class="button is-warning" (click)="showProduct(product)">Edit</button>
+      </td>
+      <td>
+        <button class="button is-danger" (click)="deleteProduct(product)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
